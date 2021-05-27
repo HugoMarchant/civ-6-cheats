@@ -134,12 +134,6 @@ class Tile:
         self.mapY = None
         self.coord = None
         self.poly = None
-        self.topLeftTile = None
-        self.leftTile = None
-        self.topRightTile = None
-        self.bottomRightTile = None
-        self.rightTile = None
-        self.bottomLeftTile = None
         self.text = ""
         self.baseTerrain = None
         self.terrainFeatures = []
@@ -170,25 +164,6 @@ def drawMap(win):
     for i in range(0, mapXLength):
         for j in range(0, mapYLength):
             map[i][j] = Tile()
-            # Right
-            if i+1 < mapXLength:
-                map[i][j].rightTile = map[i+1][j]
-            # Bottom right
-            if j+1 < mapYLength:
-                map[i][j].bottomRightTile = map[i][j+1]
-            # Bottom left
-            if (i-1 >= 0) and (j+1 < mapYLength):
-                map[i][j].bottomLeftTile = map[i-1][j+1]
-            # Left
-            if i-1 >= 0:
-                map[i][j].leftTile = map[i-1][j]
-            # Top right
-            if j-1 >= 0:
-                map[i][j].topRightTile = map[i][j-1]
-            # Top left
-            if (i-1 > 0) and (j-1 > 0):
-                map[i][j].topLeftTile = map[i-1][j-1]
-
             map[i][j].mapX = i
             map[i][j].mapY = j
 
